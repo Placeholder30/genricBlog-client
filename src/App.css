@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: 75vw;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Nav Bar */
+a {
+  text-decoration: none;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.left-nav-items {
+  display: flex;
+}
+
+img {
+  width: 100%;
+}
+
+.left-nav-items .logo {
+  width: 4.2rem;
+}
+
+.left-nav-items .logo-text {
+  align-self: flex-end;
+  font-size: 1.5rem;
+}
+
+.right-nav-items {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 2rem;
+  width: 19rem;
+}
+
+.right-nav-items div {
+  border: 1px solid palevioletred;
+  padding: 0.5rem;
+  height: 3rem;
+}
+
+.login {
+  background-color: rgb(199, 118, 145);
+  width: 6rem;
+  margin: 0 auto;
+}
+.login a {
   color: white;
 }
+/* Nav ends */
 
-.App-link {
-  color: #61dafb;
+/* form */
+form {
+  font-size: 1.8rem;
+  width: 30rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1px solid palevioletred;
+  border-radius: 1rem;
+  position: relative;
+  left: 70%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label > input {
+  display: block;
+  width: 96%;
+  height: 3rem;
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-bottom: 1.2rem;
+}
+
+/* Showcase */
+.showcase {
+  width: 70%;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 4rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
 }
