@@ -1,7 +1,12 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 function Header({ toggleForm }) {
+  const location = useLocation();
+
   return (
     <nav className="nav-container">
       <div className="left-nav-items">
@@ -11,30 +16,33 @@ function Header({ toggleForm }) {
         <div className="logo-text">generic blog</div>
       </div>
 
-      <div className="right-nav-items">
-        <div className="login">
-          <a
-            href="/loginpage"
+      {location.pathname === "/" ? (
+        <div className="right-nav-items">
+          <div
+            className="login"
             onClick={(e) => {
               e.preventDefault();
               toggleForm();
             }}
           >
             Login
-          </a>
-        </div>
-        <div className="rigister">
-          <a
-            href="/registerpage"
+          </div>
+
+          <div
+            className="register"
             onClick={(e) => {
               e.preventDefault();
               toggleForm();
             }}
           >
             Register
-          </a>
+          </div>
         </div>
-      </div>
+      ) : (
+        <Link to="/">
+          <div className="logout">Logout</div>
+        </Link>
+      )}
     </nav>
   );
 }
