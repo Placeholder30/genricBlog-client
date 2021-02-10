@@ -1,18 +1,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from "react";
+import React, {useState}from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 function Header({ toggleForm }) {
   const location = useLocation();
+  const [submitValue, setSubmitValue] = useState("");
 
   return (
     <nav className="nav-container">
       <div className="left-nav-items">
-        <div className="logo">
-          <img src={logo} alt="generic blog logo" />
-        </div>
+        <Link to="/">
+          <div className="logo">
+            <img src={logo} alt="generic blog logo" />
+          </div>
+        </Link>
         <div className="logo-text">generic blog</div>
       </div>
 
@@ -27,7 +30,6 @@ function Header({ toggleForm }) {
           >
             Login
           </div>
-
           <div
             className="register"
             onClick={(e) => {
