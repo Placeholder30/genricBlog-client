@@ -1,24 +1,28 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+const axios = require("axios").default;
 
-function Form() {
+function Form({ buttonText }) {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const handleSubmit = async () => {
+    history.push("/timeline");
+    console.log(email, password);
+    try {
+      const apiCall = await axios.post("http://localhost:5000/api", {
+        email: email,
+        password: password,
+      });
+      console.log(apiCall);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <form action="" className="form">
-      <label>
-        Username
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-      </label>
+    <form className="form" method="POST">
       <label>
         Email
         <input
@@ -42,9 +46,15 @@ function Form() {
         />
       </label>
 
-      <Link to="/timeline">
-        <button type="submit">Submit</button>
-      </Link>
+      <button
+        type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
+        {buttonText}
+      </button>
     </form>
   );
 }

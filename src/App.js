@@ -3,18 +3,20 @@ import "./App.css";
 import LandingPage from "./components/LandingPage";
 import Timeline from "./components/Timeline";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <div className="container">
       <Router>
         <Switch>
-          <Route path="/" exact>
+          <Route exact path="/">
             <LandingPage />
           </Route>
-
           <Route path="/timeline">
-            <Timeline />
+            <ProtectedRoute>
+              <Timeline />
+            </ProtectedRoute>
           </Route>
         </Switch>
       </Router>

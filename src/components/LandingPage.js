@@ -6,14 +6,15 @@ import Footer from "./Footer";
 
 function LandingPage() {
   const [showForm, setShowForm] = useState(false);
+  const [buttonText, setButtonText] = useState("");
 
   const toggleForm = () => {
-    setShowForm(true);
+    setShowForm(!showForm);
   };
   return (
     <div>
-      <Header toggleForm={toggleForm} />
-      {showForm ? <Form /> : null}
+      <Header toggleForm={toggleForm} setButtonText={setButtonText} />
+      {showForm ? <Form buttonText={buttonText} /> : null}
       <Showcase />
       <Footer />
     </div>

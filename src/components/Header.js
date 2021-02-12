@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, {useState}from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
-function Header({ toggleForm }) {
+function Header({ toggleForm, setButtonText }) {
   const location = useLocation();
-  const [submitValue, setSubmitValue] = useState("");
 
   return (
     <nav className="nav-container">
@@ -26,6 +25,7 @@ function Header({ toggleForm }) {
             onClick={(e) => {
               e.preventDefault();
               toggleForm();
+              setButtonText("Login");
             }}
           >
             Login
@@ -35,6 +35,7 @@ function Header({ toggleForm }) {
             onClick={(e) => {
               e.preventDefault();
               toggleForm();
+              setButtonText("Register");
             }}
           >
             Register
