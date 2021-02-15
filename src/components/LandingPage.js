@@ -4,7 +4,7 @@ import Form from "./Form";
 import Showcase from "./Showcase";
 import Footer from "./Footer";
 
-function LandingPage() {
+function LandingPage({ setAuthStatus }) {
   const [showForm, setShowForm] = useState(false);
   const [buttonText, setButtonText] = useState("");
 
@@ -14,7 +14,9 @@ function LandingPage() {
   return (
     <div>
       <Header toggleForm={toggleForm} setButtonText={setButtonText} />
-      {showForm ? <Form buttonText={buttonText} /> : null}
+      {showForm ? (
+        <Form buttonText={buttonText} setAuthStatus={setAuthStatus} />
+      ) : null}
       <Showcase />
       <Footer />
     </div>

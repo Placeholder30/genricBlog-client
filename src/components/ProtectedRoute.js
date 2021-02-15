@@ -1,9 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-function ProtectedRoute(props) {
-  const a = 1;
 
-  if (a) {
+function ProtectedRoute(props) {
+  if (props.authStatus) {
     return <> {props.children}</>;
   } else {
     return <Redirect to="/" />;

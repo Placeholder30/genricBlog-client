@@ -43,7 +43,14 @@ function Header({ toggleForm, setButtonText }) {
         </div>
       ) : (
         <Link to="/">
-          <div className="logout">Logout</div>
+          <div
+            className="logout"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
+            Logout
+          </div>
         </Link>
       )}
     </nav>
