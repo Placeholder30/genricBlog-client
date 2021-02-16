@@ -8,20 +8,22 @@ function Form({ buttonText, setAuthStatus }) {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
-  const formData =
-    firstName && lastName
-      ? { email, firstName, lastName, password }
-      : { email, password };
+  const formData = firstName
+    ? { email, firstName, lastName, password }
+    : { email, password };
 
   const handleSubmit = async () => {
     try {
+      setLoading(true);
       const res = await axios.post(
         `http://localhost:3900/api/${buttonText}`.toLowerCase(),
         formData
       );
       if (res.status === 200) {
         setAuthStatus(true);
+        setLoading(false);
         history.push("/timeline");
       }
     } catch (error) {
@@ -37,18 +39,19 @@ function Form({ buttonText, setAuthStatus }) {
             Firstname
             <input
               type="text"
-              name="email"
+              name="firstName"
               value={firstName}
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
             />
           </label>
+
           <label>
             Lastname
             <input
               type="text"
-              name="email"
+              name="lastName"
               value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -87,7 +90,7 @@ function Form({ buttonText, setAuthStatus }) {
           handleSubmit();
         }}
       >
-        {buttonText}
+        {!loading ? buttonText : "Loading..."}
       </button>
     </form>
   );

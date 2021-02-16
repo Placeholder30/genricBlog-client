@@ -1,11 +1,11 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-function ProtectedRoute({ component: Component, authStatus }) {
+function ProtectedRoute({ component: Component, authStatus, setAuthStatus }) {
   if (authStatus) {
     return (
       <>
-        <Component />
+        <Component authStatus={authStatus} setAuthStatus={setAuthStatus} />
       </>
     );
   } else {

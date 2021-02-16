@@ -83,6 +83,7 @@ img {
 .logout:hover {
   background-color: rgb(199, 118, 145);
   color: white;
+  cursor: pointer;
 }
 
 /* Nav ends */
@@ -97,6 +98,7 @@ form {
   border-radius: 1rem;
   position: absolute;
   left: 70%;
+  z-index: 2;
 }
 
 label > input {
