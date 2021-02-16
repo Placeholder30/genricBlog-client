@@ -4,7 +4,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
-function Header({ toggleForm, setButtonText }) {
+function Header({ toggleForm, setButtonText, setAuthStatus }) {
   const location = useLocation();
 
   return (
@@ -42,16 +42,15 @@ function Header({ toggleForm, setButtonText }) {
           </div>
         </div>
       ) : (
-        <Link to="/">
-          <div
-            className="logout"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            Logout
-          </div>
-        </Link>
+        <div
+          className="logout"
+          onClick={(e) => {
+            e.preventDefault();
+            setAuthStatus(false);
+          }}
+        >
+          Logout
+        </div>
       )}
     </nav>
   );

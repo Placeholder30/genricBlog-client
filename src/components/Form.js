@@ -15,8 +15,6 @@ function Form({ buttonText, setAuthStatus }) {
       : { email, password };
 
   const handleSubmit = async () => {
-    console.log(email, password);
-    history.push("/timeline");
     try {
       const res = await axios.post(
         `http://localhost:3900/api/${buttonText}`.toLowerCase(),
@@ -24,6 +22,7 @@ function Form({ buttonText, setAuthStatus }) {
       );
       if (res.status === 200) {
         setAuthStatus(true);
+        history.push("/timeline");
       }
     } catch (error) {
       console.log(error);

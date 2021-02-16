@@ -13,7 +13,11 @@ function LandingPage({ setAuthStatus }) {
   };
   return (
     <div>
-      <Header toggleForm={toggleForm} setButtonText={setButtonText} />
+      <Header
+        toggleForm={toggleForm}
+        setButtonText={setButtonText}
+        setAuthStatus={setAuthStatus}
+      />
       {showForm ? (
         <Form buttonText={buttonText} setAuthStatus={setAuthStatus} />
       ) : null}

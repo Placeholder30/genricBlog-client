@@ -16,9 +16,11 @@ function App() {
             <LandingPage setAuthStatus={setAuthStatus} />
           </Route>
           <Route path="/timeline">
-            <ProtectedRoute authStatus={authStatus}>
-              <Timeline />
-            </ProtectedRoute>
+            <ProtectedRoute
+              authStatus={authStatus}
+              component={Timeline}
+              setAuthStatus={setAuthStatus}
+            />
           </Route>
         </Switch>
       </Router>
