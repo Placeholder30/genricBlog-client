@@ -9,6 +9,7 @@ function Form({ buttonText, setAuthStatus }) {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const [loading, setLoading] = useState(false);
+  const [active, setActive] = useState(false);
 
   const formData = firstName
     ? { email, firstName, lastName, password }
@@ -38,6 +39,7 @@ function Form({ buttonText, setAuthStatus }) {
           <label>
             Firstname
             <input
+              placeholder="Jane"
               type="text"
               name="firstName"
               value={firstName}
@@ -46,10 +48,10 @@ function Form({ buttonText, setAuthStatus }) {
               }}
             />
           </label>
-
           <label>
             Lastname
             <input
+              placeholder="Doe"
               type="text"
               name="lastName"
               value={lastName}
@@ -64,6 +66,7 @@ function Form({ buttonText, setAuthStatus }) {
         Email
         <input
           type="text"
+          placeholder="you@example.com"
           name="email"
           value={email}
           onChange={(e) => {
@@ -74,7 +77,9 @@ function Form({ buttonText, setAuthStatus }) {
       <label>
         Password
         <input
+          autoComplete="off"
           type="password"
+          placeholder="************"
           name="password"
           value={password}
           onChange={(e) => {
@@ -84,9 +89,11 @@ function Form({ buttonText, setAuthStatus }) {
       </label>
 
       <button
+        disabled={active}
         type="submit"
         onClick={(e) => {
           e.preventDefault();
+          setActive(!active);
           handleSubmit();
         }}
       >

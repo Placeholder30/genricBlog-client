@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import LandingPage from "./components/LandingPage";
-import Timeline from "./components/Timeline";
+import LandingPage from "./components/pages/LandingPage";
+import ProtectedRoute from "./components/partials/ProtectedRoute";
+import Timeline from "./components/pages/Timeline";
+import CreatePost from "./components/pages/CreatePost";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [authStatus, setAuthStatus] = useState(false);
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <LandingPage setAuthStatus={setAuthStatus} />
+            <CreatePost />
           </Route>
           <Route path="/timeline">
             <ProtectedRoute

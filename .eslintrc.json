@@ -10,7 +10,9 @@
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -24,7 +26,9 @@
     "react/prop-types": 0,
     "no-console": 1,
     "no-unused-vars": 1,
-    "react/no-unescaped-entities": 0
+    "react/no-unescaped-entities": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
 
   "settings": {

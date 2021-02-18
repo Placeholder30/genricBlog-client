@@ -94,7 +94,6 @@ form {
   width: 30rem;
   margin-top: 1.8rem;
   padding: 2rem;
-  border: 1px solid palevioletred;
   border-radius: 1rem;
   position: absolute;
   left: 70%;
@@ -104,12 +103,16 @@ form {
 label > input {
   display: block;
   width: 96%;
-  height: 3rem;
-  border-radius: 1rem;
+  height: 4rem;
   outline: none;
   border: none;
   border-bottom: 1px solid gray;
   margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  background-color: none;
+}
+input {
+  background-color: none;
 }
 
 button[type="submit"] {
@@ -119,6 +122,12 @@ button[type="submit"] {
   margin-left: 10rem;
   background-color: rgb(199, 118, 145);
   width: 9rem;
+  border: 1px solid rgb(199, 118, 145);
+}
+button[type="submit"]:hover {
+  color: black;
+  cursor: pointer;
+  background-color: white;
 }
 
 /* form end */
@@ -141,4 +150,54 @@ p {
   bottom: 0;
   text-align: center;
   width: 100%;
+  margin-bottom: 0;
+}
+/* Timeline page styles */
+.timeline-heading {
+  text-align: center;
+}
+.flex-container {
+  display: flex;
+  font-size: 2rem;
+}
+.side-bar {
+  max-width: 20rem;
+  border-right: 1px solid gray;
+  height: 50rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.avatar {
+  max-width: 12rem;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+.avatar img {
+  width: 100%;
+  border-radius: 5rem;
+}
+.item {
+  padding: 0.7rem;
+  border: 1px solid gray;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.firstname {
+  border-bottom: 1px solid gray;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+}
+
+.item:hover {
+  background-color: rgb(199, 118, 145);
+  cursor: pointer;
+}
+
+/* timeline */
+.card {
+  max-width: 80rem;
+  margin-bottom: 2rem;
+  margin-left: 3rem;
 }

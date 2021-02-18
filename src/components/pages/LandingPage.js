@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import Form from "./Form";
-import Showcase from "./Showcase";
-import Footer from "./Footer";
+import Header from "../partials/Header";
+import Form from "../partials/Form";
+import Showcase from "../partials/Showcase";
+import Footer from "../partials/Footer";
 
 function LandingPage({ setAuthStatus }) {
   const [showForm, setShowForm] = useState(false);
   const [buttonText, setButtonText] = useState("");
 
   const toggleForm = () => {
-    setShowForm(!showForm);
+    setShowForm(true);
   };
   return (
     <div>
