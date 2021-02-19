@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
 function Header({ toggleForm, setButtonText, setAuthStatus }) {
-  const location = useLocation();
+  const history = useHistory();
 
   return (
     <nav className="nav-container">
@@ -47,6 +47,7 @@ function Header({ toggleForm, setButtonText, setAuthStatus }) {
           onClick={(e) => {
             e.preventDefault();
             setAuthStatus(false);
+            history.push("/");
           }}
         >
           Logout

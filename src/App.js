@@ -15,13 +15,20 @@ function App() {
         <Switch>
           <Route exact path="/">
             <LandingPage setAuthStatus={setAuthStatus} />
-            <CreatePost />
           </Route>
-          <Route path="/timeline">
+
+          <Route exact path="/timeline">
             <ProtectedRoute
               authStatus={authStatus}
-              component={Timeline}
               setAuthStatus={setAuthStatus}
+              component={Timeline}
+            />
+          </Route>
+          <Route exact path="/createpost">
+            <ProtectedRoute
+              authStatus={authStatus}
+              setAuthStatus={setAuthStatus}
+              component={CreatePost}
             />
           </Route>
         </Switch>

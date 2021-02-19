@@ -65,8 +65,8 @@ function Form({ buttonText, setAuthStatus }) {
       <label>
         Email
         <input
-          type="text"
           placeholder="you@example.com"
+          type="text"
           name="email"
           value={email}
           onChange={(e) => {

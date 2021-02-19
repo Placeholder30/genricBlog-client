@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import avatar from "../assets/todd_chavez.jpg";
+import { Redirect, useHistory } from "react-router-dom";
 
 function Timeline({ setAuthStatus }) {
+  const history = useHistory();
   return (
     <>
       <Header setAuthStatus={setAuthStatus} />
@@ -16,7 +20,14 @@ function Timeline({ setAuthStatus }) {
             </div>
 
             <div className=" firstname">Firstname</div>
-            <div className="item">Create a Post</div>
+            <div
+              className="item"
+              onClick={() => {
+                history.push("/createpost");
+              }}
+            >
+              Create a Post
+            </div>
             <div className="item">Timeline</div>
           </div>
 

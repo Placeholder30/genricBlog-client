@@ -93,26 +93,22 @@ form {
   font-size: 1.8rem;
   width: 30rem;
   margin-top: 1.8rem;
-  padding: 2rem;
+  padding: 1.7rem;
   border-radius: 1rem;
   position: absolute;
   left: 70%;
   z-index: 2;
 }
 
-label > input {
+input {
   display: block;
   width: 96%;
   height: 4rem;
   outline: none;
   border: none;
   border-bottom: 1px solid gray;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
   font-size: 1.8rem;
-  background-color: none;
-}
-input {
-  background-color: none;
 }
 
 button[type="submit"] {
