@@ -4,7 +4,8 @@ import React from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import avatar from "../assets/todd_chavez.jpg";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+const axios = require("axios").default;
 
 function Timeline({ setAuthStatus }) {
   const history = useHistory();
@@ -22,8 +23,14 @@ function Timeline({ setAuthStatus }) {
             <div className=" firstname">Firstname</div>
             <div
               className="item"
-              onClick={() => {
-                history.push("/createpost");
+              onClick={async () => {
+                const res = await axios.get(
+                  "http://localhost:3900/api/createpost"
+                );
+
+                res.status === 200
+                  ? history.push("/createpost")
+                  : history.push("/");
               }}
             >
               Create a Post

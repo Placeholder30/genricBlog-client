@@ -131,7 +131,8 @@ button[type="submit"]:hover {
 /* Showcase */
 .showcase {
   width: 70%;
-  margin: 30rem auto 0;
+  margin: 25rem auto 0;
+  text-align: left;
 }
 h1 {
   font-size: 4rem;

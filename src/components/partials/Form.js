@@ -7,9 +7,9 @@ function Form({ buttonText, setAuthStatus }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState(false);
+  const history = useHistory();
 
   const formData = firstName
     ? { email, firstName, lastName, password }
