@@ -47,6 +47,7 @@ function Header({ toggleForm, setButtonText, setAuthStatus }) {
           onClick={(e) => {
             e.preventDefault();
             setAuthStatus(false);
+            sessionStorage.clear();
             history.push("/");
           }}
         >

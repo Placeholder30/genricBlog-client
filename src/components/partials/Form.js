@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 const axios = require("axios").default;
 
-function Form({ buttonText, setAuthStatus }) {
+function Form({ buttonText, setButtonText, setAuthStatus, setAuthToken }) {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [active, setActive] = useState(false);
   const history = useHistory();
 
@@ -17,21 +17,24 @@ function Form({ buttonText, setAuthStatus }) {
 
   const handleSubmit = async () => {
     try {
-      setLoading(true);
       const res = await axios.post(
         `http://localhost:3900/api/${buttonText}`.toLowerCase(),
         formData
       );
+
       if (res.status === 200) {
         setAuthStatus(true);
-        setLoading(false);
+        setAuthToken(res.data.authToken);
+        sessionStorage.setItem("authStatus", "true");
+
         history.push("/timeline");
+      } else {
+        setButtonText("not loading");
       }
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <form className="form" method="POST">
       {buttonText === "Register" ? (
@@ -77,7 +80,6 @@ function Form({ buttonText, setAuthStatus }) {
       <label>
         Password
         <input
-          autoComplete="off"
           type="password"
           placeholder="************"
           name="password"
@@ -94,10 +96,11 @@ function Form({ buttonText, setAuthStatus }) {
         onClick={(e) => {
           e.preventDefault();
           setActive(!active);
+          setButtonText("Loading...");
           handleSubmit();
         }}
       >
-        {!loading ? buttonText : "Loading..."}
+        {buttonText}
       </button>
     </form>
   );

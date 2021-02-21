@@ -4,7 +4,7 @@ import Form from "../partials/Form";
 import Showcase from "../partials/Showcase";
 import Footer from "../partials/Footer";
 
-function LandingPage({ setAuthStatus }) {
+function LandingPage({ setAuthStatus, setAuthToken }) {
   const [showForm, setShowForm] = useState(false);
   const [buttonText, setButtonText] = useState("");
 
@@ -19,7 +19,12 @@ function LandingPage({ setAuthStatus }) {
         setAuthStatus={setAuthStatus}
       />
       {showForm ? (
-        <Form buttonText={buttonText} setAuthStatus={setAuthStatus} />
+        <Form
+          buttonText={buttonText}
+          setButtonText={setButtonText}
+          setAuthStatus={setAuthStatus}
+          setAuthToken={setAuthToken}
+        />
       ) : null}
       <Showcase />
       <Footer />

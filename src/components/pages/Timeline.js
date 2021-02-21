@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from "react";
+import { React } from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import avatar from "../assets/todd_chavez.jpg";
 import { useHistory } from "react-router-dom";
 const axios = require("axios").default;
 
-function Timeline({ setAuthStatus }) {
+function Timeline({ setAuthStatus, authToken }) {
   const history = useHistory();
+
   return (
     <>
       <Header setAuthStatus={setAuthStatus} />
@@ -25,7 +26,12 @@ function Timeline({ setAuthStatus }) {
               className="item"
               onClick={async () => {
                 const res = await axios.get(
-                  "http://localhost:3900/api/createpost"
+                  "http://localhost:3900/api/createpost",
+                  {
+                    headers: {
+                      token: authToken,
+                    },
+                  }
                 );
 
                 res.status === 200
