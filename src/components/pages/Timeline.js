@@ -1,22 +1,16 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { React } from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
-import avatar from "../assets/todd_chavez.jpg";
-import { useHistory } from "react-router-dom";
-const axios = require("axios").default;
+import Sidebar from "../partials/Sidebar";
 
 function Timeline({ setAuthStatus, authToken }) {
-  const history = useHistory();
-
   return (
     <>
       <Header setAuthStatus={setAuthStatus} />
       <div className="timeline-container">
         <h1 className="timeline-heading">Timeline</h1>
         <div className="flex-container">
-          ****************************************************
+          <Sidebar authToken={authToken} />
           <div className="timeline">
             <div className="card">
               <div className="post">

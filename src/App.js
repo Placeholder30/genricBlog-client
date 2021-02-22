@@ -31,6 +31,7 @@ function App() {
           </Route>
           <Route exact path="/createpost">
             <ProtectedRoute
+              authToken={authToken}
               authStatus={authStatus}
               setAuthStatus={setAuthStatus}
               component={CreatePost}

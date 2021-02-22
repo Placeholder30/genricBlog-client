@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import React from "react";
+import axios from "axios";
+import avatar from "../assets/todd_chavez.jpg";
+import { useHistory } from "react-router-dom";
 
-function sidebar() {
+function Sidebar({ authToken }) {
+  const history = useHistory();
   return (
     <div className="side-bar">
       <div className="avatar">
@@ -25,9 +28,11 @@ function sidebar() {
       >
         Create a Post
       </div>
-      <div className="item">Timeline</div>
+      <div className="item" onClick={() => history.push("/timeline")}>
+        Timeline
+      </div>
     </div>
   );
 }
 
-export default sidebar;
+export default Sidebar;
