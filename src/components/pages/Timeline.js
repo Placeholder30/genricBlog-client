@@ -16,34 +16,7 @@ function Timeline({ setAuthStatus, authToken }) {
       <div className="timeline-container">
         <h1 className="timeline-heading">Timeline</h1>
         <div className="flex-container">
-          <div className="side-bar">
-            <div className="avatar">
-              <img src={avatar} alt="" />
-            </div>
-
-            <div className=" firstname">Firstname</div>
-            <div
-              className="item"
-              onClick={async () => {
-                const res = await axios.get(
-                  "http://localhost:3900/api/createpost",
-                  {
-                    headers: {
-                      token: authToken,
-                    },
-                  }
-                );
-
-                res.status === 200
-                  ? history.push("/createpost")
-                  : history.push("/");
-              }}
-            >
-              Create a Post
-            </div>
-            <div className="item">Timeline</div>
-          </div>
-
+          ****************************************************
           <div className="timeline">
             <div className="card">
               <div className="post">

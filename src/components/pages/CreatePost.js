@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function CreatePost() {
-  return (
-    <div>
-      <input type="text" />
-      <textarea name="" id="" cols="30" rows="10"></textarea>
-    </div>
-  );
+  const [editorInput, setEditorInput] = useState("");
+
+  return <div></div>;
 }
 
 export default CreatePost;

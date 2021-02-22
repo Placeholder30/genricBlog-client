@@ -7,8 +7,8 @@ import CreatePost from "./components/pages/CreatePost";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  const [authStatus, setAuthStatus] = useState(getLocalState());
-  const [authToken, setAuthToken] = useState("");
+  const [authStatus, setAuthStatus] = useState(getLocalAuthStatus());
+  const [authToken, setAuthToken] = useState(getLocalToken);
 
   return (
     <div className="container">
@@ -42,7 +42,7 @@ function App() {
   );
 }
 
-function getLocalState() {
+function getLocalAuthStatus() {
   let auth = sessionStorage.getItem("authStatus");
   if (auth === "true") {
     return true;
@@ -50,5 +50,10 @@ function getLocalState() {
     return false;
   }
 }
-
+function getLocalToken() {
+  let token = sessionStorage.getItem("authToken");
+  if (token) {
+    return token;
+  } else return "";
+}
 export default App;

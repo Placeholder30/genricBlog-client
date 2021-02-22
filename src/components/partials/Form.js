@@ -7,7 +7,6 @@ function Form({ buttonText, setButtonText, setAuthStatus, setAuthToken }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
-  // const [loading, setLoading] = useState(false);
   const [active, setActive] = useState(false);
   const history = useHistory();
 
@@ -25,6 +24,7 @@ function Form({ buttonText, setButtonText, setAuthStatus, setAuthToken }) {
       if (res.status === 200) {
         setAuthStatus(true);
         setAuthToken(res.data.authToken);
+        sessionStorage.setItem("authToken", res.data.authToken);
         sessionStorage.setItem("authStatus", "true");
 
         history.push("/timeline");
